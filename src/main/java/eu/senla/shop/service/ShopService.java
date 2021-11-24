@@ -5,8 +5,10 @@ import eu.senla.shop.dto.ShopDTO;
 import eu.senla.shop.api.mapper.IShopMapper;
 import eu.senla.shop.model.Shop;
 import eu.senla.shop.api.repository.IShopRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,16 +19,18 @@ import java.util.stream.Collectors;
 @Slf4j
 @Setter
 @Service
+@RequiredArgsConstructor
 public class ShopService implements IShopService {
 
-    @Autowired
+    //    @Autowired
     private IShopRepository shopRepository;
+    //        @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public ShopDTO save(ShopDTO shopDTO) {
-        log.info("BEGINNING METHOD save({})", shopDTO);
-        Shop shops = shopRepository.save(IShopMapper.INSTANCE.toShop(shopDTO));
-        return IShopMapper.INSTANCE.toDTO(shops);
+        Shop shops = shopRepository.save(modelMapper.map(shopDTO, Shop.class));
+        return modelMapper.map(shops, ShopDTO.class);
     }
 
     @Override

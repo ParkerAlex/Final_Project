@@ -8,8 +8,8 @@ import eu.senla.shop.dto.PriceDTO;
 import eu.senla.shop.api.mapper.IPriceMapper;
 import eu.senla.shop.model.Price;
 import eu.senla.shop.api.repository.IPriceRepository;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -19,13 +19,11 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class PriceService implements IPriceService {
 
-    @Autowired
     private IPriceRepository priceRepository;
-    @Autowired
     private IPriceShopComparator priceShopComparator;
-    @Autowired
     private IDiagram diagram;
 
     @Override

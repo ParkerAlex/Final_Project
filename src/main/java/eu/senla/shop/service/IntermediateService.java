@@ -5,8 +5,8 @@ import eu.senla.shop.api.repository.IIntermediateRepository;
 import eu.senla.shop.api.services.IIntermediateService;
 import eu.senla.shop.dto.IntermediateDTO;
 import eu.senla.shop.model.Intermediate;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +14,9 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class IntermediateService implements IIntermediateService {
 
-    @Autowired
     private IIntermediateRepository intermediateRepository;
 
     @Override
