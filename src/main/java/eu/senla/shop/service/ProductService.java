@@ -6,8 +6,8 @@ import eu.senla.shop.dto.ProductDTO;
 import eu.senla.shop.api.mapper.IProductMapper;
 import eu.senla.shop.model.Product;
 import eu.senla.shop.api.repository.IProductRepository;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,11 +17,10 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class ProductService implements IProductService {
 
-    @Autowired
     private IProductRepository productRepository;
-    @Autowired
     private IProductsImportCSV productsImportCSV;
 
     @Override

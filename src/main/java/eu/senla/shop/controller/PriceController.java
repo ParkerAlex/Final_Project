@@ -3,8 +3,8 @@ package eu.senla.shop.controller;
 import eu.senla.shop.api.services.IPriceService;
 import eu.senla.shop.dto.ComparatorTwoShopDTO;
 import eu.senla.shop.dto.PriceDTO;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +15,10 @@ import java.util.Map;
 
 @Slf4j
 @RestController
+@AllArgsConstructor
 @RequestMapping("/prices")
 public class PriceController {
 
-    @Autowired
     private IPriceService priceService;
 
     @PostMapping
